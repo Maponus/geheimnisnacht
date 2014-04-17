@@ -40,6 +40,11 @@ recent_chaos_incursion = {
 	disease_defence = -0.1
 	icon = 31
 }
+# Asked for
+called_for_help_chaos = {
+	monthly_character_prestige = -0.03
+        icon = 6
+}
 # for provinces of non chaotic religion ruled by chaos
 resistance = {
 	supply_limit = -5

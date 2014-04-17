@@ -304,13 +304,30 @@ character_event = {
         } 
     }
 }
-# event that deletes flag for rulers that called for help
+# event triggerd if ruler wants to fight chaos 
+# armies on his territory
 character_event = {
     id = doomengine.23
+    desc = "we should fight the trasspasser"
     is_triggered_only = yes
-    hide_window = yes
    
-    immediate = {
-        clr_character_flag = chaos_struggle_help_called
+    option = {
+        name = "JOin fight"
+        any_war = { 
+            limit = {
+                using_cb = chaos_invasion 
+                defender = {
+                    random_current_enemy = {
+                        limit = {
+                            in_command = yes
+                            location = { holder_scope = { top_liege = ROOT } }
+                        }
+                    }
+                }
+            }
+            defender = { 
+                 ROOT = { join_defender_wars = PREV }
+            }
+        }
     }
 }

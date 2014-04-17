@@ -20,10 +20,11 @@ decision_close_spellbook;Close the spellbook;;;;;;;;;;;;;x
 # chaos decisions
 decision_reveal_chaos_religion;Reveal yourself as chaos worshipper;;;;;;;;;;;;;x
 decision_reveal_chaos_religion_desc;Reveal yourself as chaos worshipper;;;;;;;;;;;;;x
-# join_chas_invasion
-decision_join_chaos_invasion;Take part in Chaos invasion;;;;;;;;;;;;;x
-decision_join_chaos_invasion_desc;Allows character to join the ongoing Chaos Invasion.;;;;;;;;;;;;;x
-chaos_invasion_tooltip;Requires that True Champion of Chaos leads an invasion.;;;;;;;;;;;;;x
+# attack_chaos
+decision_attack_chaos;Fight against Chaos!;;;;;;;;;;;;;x
+decision_attack_chaos_desc;Join the holy war against Chaos forces that are traspassing your lands.;;;;;;;;;;;;;x
+decision_attack_chaos_tooltip;Requires Chaos army trasspasing your lands.;;;;;;;;;;;;;x
 # chaos struggle
 decision_chaos_struggle_help;Call for help against forces of Chaos;;;;;;;;;;;;;x
 decision_chaos_struggle_help_desc;Sends a call for help to every ruler of forces of order.;;;;;;;;;;;;;x
+decision_chaos_struggle_help_tooltip;Help has not been called;;;;;;;;;;;;;x

@@ -2309,7 +2309,6 @@ religious = {
             NOT = { religion_group = dwarf_gods_group }
             NOT = { religion_group = halfling_gods_group }
             NOT = { religion_group = beastman_gods_group }
-            #NOT = { religion_group = norse_group }
             #
             NOT = { same_realm = FROM }
             OR = {
@@ -7141,7 +7140,7 @@ chaos_invasion = {
     name = CB_NAME_CHAOS_INVASION
     war_name = WAR_NAME_CHAOS_INVASION
     sprite = 30 
-    truce_days = 365
+    truce_days = 180
     hostile_against_others = yes
     is_permanent = yes
     check_de_jure_tier = KING # this scans all de jure kingdoms for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
@@ -7196,7 +7195,11 @@ chaos_invasion = {
             }
         }
     }
-    # send proper event to chaos followers
+    ########################################################
+    #
+    # ON_ADD - invasions starts
+    #
+    # send proper event to chaos followers 
     on_add = { 
         ROOT = { 
             if = {
@@ -7212,13 +7215,17 @@ chaos_invasion = {
                 character_event = { id = doomengine.20 }
             }
         }
-
     }
+    #########################################################
+    #
+    # ON SUCCESS
+    #
+    #########################################################
     on_success = {
         # DOOM_COUNTER - raise
         1 = { change_variable = { which = "doom_counter" value = 16 } }
         
-        ######################################################
+        #####################################################
         # 
         # Here should be code targeting neighbouring kingodm
         #
@@ -7232,10 +7239,15 @@ chaos_invasion = {
                 NOT = { religion_group = beastman_gods_group } 
                 NOT = { religion_group = hashut_god_group } 
                 NOT = { religion = dark_norse } 
-                # target must be nearby
-                NOT = { FROM = { distance = { who = PREV distance = 200 } } }
+                # target must be nearby so bordering province 
+                # FIXME: simple way
+                NOT = { FROM = { distance = { who = PREV distance = 250 } } } 
+                # cannot attack the same person again!
+                # or any of his allies
+                NOT = { war_with = ROOT }  # FIXME not sure which one of those will work
+                NOT = { reverse_has_truce = ROOT } # FIXME so i used both
             }
-            # going to scope
+            # going to victim title scope
             random_demesne_title = {
                 limit = { tier = KING }
                 ROOT = { 
@@ -7293,7 +7305,7 @@ chaos_invasion = {
                 any_realm_province = {
                     limit = { 
                     }
-                    add_province_modifier = { name = resistance duration = -1 }
+                    add_province_modifier = { name = resistance duration = 10 }
                 }
             }
         }

@@ -1,76 +1,93 @@
 decisions = {
 
-    # Join the chaos invasion
-    #decision_join_chaos_invasion = {
-    #    potential = {
-    #        custom_tooltip = {
-    #            text = chaos_invasion_tooltip
-    #        # all of our pc decisions use this trigger
-    #        # there is an invasion led by champion
-    #        any_independent_ruler = {
-    #            OR = { 
-    #                has_landed_title = e_host_chaos
-    #                has_landed_title = e_host_tzeentch
-    #                has_landed_title = e_host_slaanesh
-    #                has_landed_title = e_host_khorne
-    #                has_landed_title = e_host_nurgle
-    #            }
-    #            any_war = { using_cb = chaos_invasion }
-    #        }
-    #        OR = {
-    #            religion_group = chaos_gods_group
-    #            religion_group = norse_group
-    #            religion_group = horned_rat_god_group
-    #            religion_group = greenskin_gods_group
-    #        }
-    #        }
-    #    }
-    #    allow = {
-    #        #war = no
-    #        #prisoner = no
-    #        #independent = yes
-    #        always = no
-    #    }
-    #
-    #    # triggers the event where you choose the invasion side
-    #    effect = {
-    #        hidden_tooltip = {
-    #            random_independent_ruler = {
-    #                limit = { 
-    #                    OR = { 
-    #                        has_landed_title = e_host_chaos
-    #                        has_landed_title = e_host_tzeentch
-    #                        has_landed_title = e_host_slaanesh
-    #                        has_landed_title = e_host_khorne
-    #                        has_landed_title = e_host_nurgle
-    #                    }
-    #                    any_war = { using_cb = chaos_invasion }
-    #                }
-    #                character_event = { id = doomengine.20 }
-    #            }
-    #        }
-    #    }
-    #    ai_will_do = {
-    #        # we should tweak it
-    #        factor = 1
-    #        modifier = {
-    #            factor = 0.5
-    #            has_global_flag = doom_low
-    #        }
-    #        modifier = {
-    #            factor = 1.5
-    #            has_global_flag = doom_high
-    #        }
-    #        modifier = {
-    #            factor = 2
-    #            has_global_flag = doom_very_high
-    #        }
-    #    }
-    #}
-  
+    # ATTACK CHAOS ARMIES TRASPASSING TERRITORY
+    # using chaos_invasion cb
+    decision_attack_chaos = {
+        potential = {
+            NOT = { 
+                has_character_flag = spellbook_open 
+                ai = no
+            }
+            independent = yes
+            # checks if there is chaos guy that is using invasion cb
+            # and bad armies are traspassing our territory
+            any_war = {
+                using_cb = chaos_invasion 
+                defender = { character = ROOT }
+            }
+            # we are "good" TODO expand that list
+            OR = {
+                religion_group = cadai_gods_group
+                religion_group = old_world_group
+                religion_group = dwarf_gods_group
+            }
+        }
+        allow = {
+            custom_tooltip = { text = decision_attack_chaos_tooltip }
+            hidden_tooltip = {
+            any_war = { 
+                using_cb = chaos_invasion 
+                defender = {
+                    # so any army leader of chaos guys that is in command
+                    any_current_enemy = {
+                        #in_command = yes
+                        location = { 
+                            # Owner of the province
+                            holder_scope = { 
+                                # TODO
+                                # we should consider also smaller rulers going into war
+                                top_liege = ROOT
+                            }
+                        }
+
+                    }
+                }
+            }
+            }
+        }
+        # triggers the event where you choose the invasion side
+        effect = {
+            hidden_tooltip = {
+                    character_event = { id = doomengine.23  }
+            }
+        }
+        #ai_will_do = {
+            # we should tweak it
+        #    factor = 1
+            #modifier = {
+            #    factor = 0.5
+            #    has_global_flag = doom_low
+            #}
+            #modifier = {
+            #    factor = 0.1
+            #    war = yes
+            #}
+            #modifier = {
+            #    factor = 1.4
+            #    has_global_flag = doom_high
+            #}
+            #modifier = {
+            #    factor = 1.8
+            #    has_global_flag = doom_very_high
+            #}
+            #modifier = {
+            #    factor = 1.2
+            #    religion_group = dwarf_gods_group
+            #}
+            #modifier = {
+            #    factor = 1.8
+            #    religion_group = cadai_gods_group
+            #}
+        #}
+    }
+ 
     # ASK FOR HELP against chaos invasion
     decision_chaos_struggle_help = {
         potential = {
+            NOT = { 
+                has_character_flag = spellbook_open 
+                ai = no
+            }
             independent = yes
             war = yes
             any_war = { 
@@ -95,8 +112,8 @@ decisions = {
         }
         allow = {
             custom_tooltip = {
-               text = "help must not be called"
-               NOT = { has_character_flag = chaos_struggle_help_called }
+               text = decision_chaos_struggle_help_tooltip
+               NOT = { has_character_modifier = called_for_help_chaos }
                is_primary_war_defender = yes
                prisoner = no
             }
@@ -106,10 +123,10 @@ decisions = {
         effect = {
             hidden_tooltip = {
                 # sets special character flag
-                set_character_flag = chaos_struggle_help_called
-
-                # event to delete the flag
-                character_event = { id = doomengine.23 days = 210 }
+                add_character_modifier = {
+                    name = called_for_help_chaos
+                    duration = 210
+                }
 
                 any_independent_ruler = {
                     limit = { 
