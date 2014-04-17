@@ -33,8 +33,9 @@
 
 # First marks province as traget of chaos incrusion 
 # Second one prevents chaos host recruiting from the recently conquered province
-recent_chaos_incursion = {
-	local_tax_modifier = -0.5
+ravaged_by_chaos = {
+	local_tax_modifier = -0.4
+	levy_size = -0.4
 	local_build_time_modifier = 0.33
 	local_build_cost_modifier = 0.33
 	disease_defence = -0.1
