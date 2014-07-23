@@ -165,7 +165,7 @@ character_event = {
                    religion_group = chaos_gods_group
                    religion_group = norse_group
                    religion_group = horned_rat_god_group
-                   religion_group = greenskin_gods_group
+                   religion_group = hashut_god_group
                }
                NOT = { distance = { who = ROOT distance = 1000 } }
                war = no
@@ -291,9 +291,6 @@ character_event = {
         join_defender_wars = FROM
         ai_chance = {
             factor = 2
-            modifier = {
-                 
-            }
         }
     }
     # Wait
@@ -304,30 +301,110 @@ character_event = {
         } 
     }
 }
-# event triggerd if ruler wants to fight chaos 
+# event triggerd if some character participating in war trasspasses
+# territory of character
 # armies on his territory
 character_event = {
     id = doomengine.23
-    desc = "we should fight the trasspasser"
-    is_triggered_only = yes
+    desc = "EVTDESC_DOOMENGINE_23"
+    picture = "GFX_evt_nurgle" 
    
+    # check if you're on neutral lands
+    trigger = {
+        war = yes
+        in_command = yes
+        is_primary_attacker = yes
+        any_war = { using_cb = chaos_invasion }
+        # check if its really a province
+        location = { has_owner = yes }
+        # check if its our enemy who holds it
+        location = {
+            owner = {
+                NOT = { war_with = ROOT } 
+                top_liege = {
+                    higher_tier_than = DUKE #king or emperor
+                    NOT = { war_with = ROOT }
+                    # exclude chaos religions
+                    NOT = { religion_group = chaos_gods_group }
+                    NOT = { religion = dark_norse }
+                    NOT = { religion_group = horned_rat_god_group }
+                    NOT = { religion_group = hashut_god_group }
+                    NOT = { religion_group = beastman_gods_group }
+                }
+            }
+        }
+    }
+    mean_time_to_happen = {
+        days = 12
+    }
+
     option = {
-        name = "JOin fight"
-        any_war = { 
-            limit = {
-                using_cb = chaos_invasion 
-                defender = {
-                    random_current_enemy = {
-                        limit = {
-                            in_command = yes
-                            location = { holder_scope = { top_liege = ROOT } }
+        name = "EVTOPT_DOOMENIGINE_23A"
+        location = {
+            # top liege of province owner is a king
+            if = {
+                limit = {  
+                    kingdom = { has_holder = yes } 
+                    kingdom = { holder_scope = { independent = yes } }
+                }
+                kingdom = {
+                    holder_scope = {
+                        reverse_war = {
+                            target = ROOT # us
+                            casus_belli = chaos_invasion
+                            thirdparty_title = PREV
+                        }
+                    }   
+                }
+            }
+            # assuming that top_liege is an emperor
+            if = {
+                limit = {
+                    kingdom = { has_holder = yes } 
+                    kingdom = { holder_scope = { independent = no } }
+                }
+                # we need to get the emperor title scope 
+                kingdom = {
+                    empire = {
+                        holder_scope = {
+                            # DoW on Emperor for kingdom title
+                            reverse_war = {
+                                target = ROOT #us
+                                casus_belli = chaos_invasion
+                                thirdparty_title = PREVPREV
+                            }
                         }
                     }
                 }
+                # FIXME
+                ROOT = { set_character_flag = "emperor_case" }
             }
-            defender = { 
-                 ROOT = { join_defender_wars = PREV }
+            # endif
+        }
+        # endlocation
+        ai_chance = { factor = 1 }
+    }
+    # send notification to owner of land maybe he would like to join the war
+    option = {
+        name = "EVTOPT_DOOMENGINE_23B"
+        # send event to person top liege
+        location = {
+            owner = { 
+                # get top liege KING or EMPEROR
+                top_liege = { character_event = { id = doomengine.24 } }   
             }
         }
+        ai_chance = { factor = 1 }
+    }
+}
+#
+character_event = {
+    id = doomengine.24
+    desc = ""
+    
+    is_triggered_only  = yes
+    option = {
+        name = ""
+        ai_chance = { factor = 1 }
     }
 }

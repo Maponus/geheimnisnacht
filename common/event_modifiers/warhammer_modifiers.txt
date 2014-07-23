@@ -39,12 +39,12 @@ ravaged_by_chaos = {
 	local_build_time_modifier = 0.33
 	local_build_cost_modifier = 0.33
 	disease_defence = -0.1
-	icon = 31
+	icon = 60
 }
 # Asked for
 called_for_help_chaos = {
 	monthly_character_prestige = -0.03
-        icon = 6
+        icon = 59
 }
 # for provinces of non chaotic religion ruled by chaos
 resistance = {
@@ -54,7 +54,7 @@ resistance = {
 	local_tax_modifier = -0.6
 	local_build_time_modifier = 0.33
 	local_build_cost_modifier = 0.33
-	icon = 31
+	icon = 60
 }
 
 

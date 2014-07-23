@@ -7136,13 +7136,17 @@ chaos_subjugation = {
 # 
 # CHAOS INCRUSION
 #
+# special cb with low truce its purpose is to defile land and make it a chaos province
+# chaos incrusions led by everchosen attract much more attention
+#
 chaos_invasion = {
     name = CB_NAME_CHAOS_INVASION
     war_name = WAR_NAME_CHAOS_INVASION
     sprite = 30 
-    truce_days = 180
+    truce_days = 30 		# just that one month for regroup
     hostile_against_others = yes
     is_permanent = yes
+    is_holy_war = yes		# not sure if use it?
     check_de_jure_tier = KING # this scans all de jure kingdoms for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
     
     can_use = {
@@ -7150,6 +7154,18 @@ chaos_invasion = {
             OR = {
                 religion_group = chaos_gods_group
                 religion = dark_norse
+            }
+            # there must be a price this cb targets a kingdom!
+            OR = {
+                AND = {
+                    has_ambition = obj_become_king
+                    piety = 100
+                }
+                has_landed_title = e_host_chaos
+                has_landed_title = e_host_khorne
+                has_landed_title = e_host_nurgle
+                has_landed_title = e_host_slaanesh
+                has_landed_title = e_host_tzeentch
             }
         }
         # no fighiting against other chaotic forces
@@ -7199,9 +7215,14 @@ chaos_invasion = {
     #
     # ON_ADD - invasions starts
     #
-    # send proper event to chaos followers 
     on_add = { 
-        ROOT = { 
+        ROOT = {
+            # pay the price if not have a proper ambition 
+            if = {
+                limit = { NOT = { has_ambition = obj_become_a_king } }
+                piety = -100
+            }          
+            # send proper event to chaos followers 
             if = {
                 limit = { 
                     OR = {
@@ -7227,38 +7248,43 @@ chaos_invasion = {
         
         #####################################################
         # 
-        # Here should be code targeting neighbouring kingodm
+        # Here should be code targeting neighbouring kingdoms
+        # 
+        # by Piotrek: now the code is commented since it was
+        # old design to make incrusion that way 
+        # idea is good but it has too many flaws to be coded
+        # sorry Erik i don't like lorewise, ai-wise and script-wise
         #
         #####################################################
-        random_independent_ruler = {
-            limit = {
-                # Emperor or King of non-chaos religion
-                num_of_king_titles = 1
-                NOT = { religion_group = ROOT } 
-                NOT = { religion_group = horned_rat_god_group } 
-                NOT = { religion_group = beastman_gods_group } 
-                NOT = { religion_group = hashut_god_group } 
-                NOT = { religion = dark_norse } 
-                # target must be nearby so bordering province 
-                # FIXME: simple way
-                NOT = { FROM = { distance = { who = PREV distance = 250 } } } 
-                # cannot attack the same person again!
-                # or any of his allies
-                NOT = { war_with = ROOT }  # FIXME not sure which one of those will work
-                NOT = { reverse_has_truce = ROOT } # FIXME so i used both
-            }
-            # going to victim title scope
-            random_demesne_title = {
-                limit = { tier = KING }
-                ROOT = { 
-                    war = { 
-                       casus_belli = chaos_invasion
-                       target = PREVPREV
-                       thirdparty_title = PREV
-                    }
-                }
-            }
-        }
+        #random_independent_ruler = {
+        #    limit = {
+        #        # Emperor or King of non-chaos religion
+        #        num_of_king_titles = 1
+        #        NOT = { religion_group = ROOT } 
+        #        NOT = { religion_group = horned_rat_god_group } 
+        #        NOT = { religion_group = beastman_gods_group } 
+        #        NOT = { religion_group = hashut_god_group } 
+        #        NOT = { religion = dark_norse } 
+        #        # target must be nearby so bordering province 
+        #        # FIXME: simple way
+        #        NOT = { FROM = { distance = { who = PREV distance = 250 } } } 
+        #        # cannot attack the same person again!
+        #        # or any of his allies
+        #        NOT = { war_with = ROOT }  # FIXME not sure which one of those will work
+        #        NOT = { reverse_has_truce = ROOT } # FIXME so i used both
+        #    }
+        #    # going to victim title scope
+        #    random_demesne_title = {
+        #        limit = { tier = KING }
+        #        ROOT = { 
+        #            war = { 
+        #               casus_belli = chaos_invasion
+        #               target = PREVPREV
+        #               thirdparty_title = PREV
+        #            }
+        #        }
+        #    }
+        #}
         #####################################################
 
         any_attacker = {

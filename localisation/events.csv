@@ -58,6 +58,9 @@ EVTOPT_DOOMENGINE_21B;I will never yield before Chaos.;;;;;;;;;;;;;x
 EVTOPT_DOOMENGINE_21C;That is not our war...;;;;;;;;;;;;;x
 EVTDESC_DOOMENGINE_1;Signs in the heavens and on earth tell of imminent coming of the End of Days. Mutations and Beastmen attacks are more frequent and you hear stories about strange illnesses that completely wipe out whole villages.;;;;;;;;;;;;;x
 EVTOPT_DOOMENGINE_1A;It is clear something is happening...;;;;;;;;;;;;;x
+EVTDESC_DOOMENGINE_23;Your Host entered the lands infidels,  ;;;;;;;;;;;;;x
+EVTOPT_DOOMENGINE_23A;Drown them in their own blood! In the name of Chaos!.;;;;;;;;;;;;;x
+EVTOPT_DOOMENGINE_23B;Their time will come... Try to pass unnoticed.;;;;;;;;;;;;;x
 #
 # namespace = duelengine
 EVTDESC_DUELENGINE_0;In the heat of battle you have spotted an opponent;;;;;;;;;;;;;x
