@@ -3100,6 +3100,7 @@ character_event = {
 	}
 }
 
+# REQUIRES WARHAMMER CHANGE TODO
 narrative_event = {
 	id = 670
 	title = "EVTNAME670"
