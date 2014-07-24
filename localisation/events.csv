@@ -52,15 +52,24 @@ EVTOPT_RACIAL_3A;Aaaaaa...;;;;;;;;;;;;;x
 EVTNAME_DOOMENGINE_1;Signs of Armageddon;;;;;;;;;;;;;x
 EVTDESC_DOOMENGINE_1;The Signs on heaven and earth are telling about forecoming Armageddon. Mutants attacks are more frequent and people are telling stories about strange ilnesses that depopulated whole villages...;;;;;;;;;;;;;x
 EVTOPT_DOOMENGINE_1A;Yes indeed something is happening...;;;;;;;;;;;;;x
+EVTDESC_DOOMENGINE_20;The Unholy crusade has begun! The world will tremble! The believers of false gods will be sink in their blood!!;;;;;;;;;;;;;x
+EVTOPT_DOOMENGINE_20A;For glory!;;;;;;;;;;;;;x
 EVTDESC_DOOMENGINE_21;The Armies of Chaos march through the world spreading destruction in the name of their Dark Gods. The Doom is coming... In such conflict One must take a side..;;;;;;;;;;;;;x
 EVTOPT_DOOMENGINE_21A;LET THE WORLD BURN!.;;;;;;;;;;;;;x
 EVTOPT_DOOMENGINE_21B;I will never yield before Chaos.;;;;;;;;;;;;;x
 EVTOPT_DOOMENGINE_21C;That is not our war...;;;;;;;;;;;;;x
 EVTDESC_DOOMENGINE_1;Signs in the heavens and on earth tell of imminent coming of the End of Days. Mutations and Beastmen attacks are more frequent and you hear stories about strange illnesses that completely wipe out whole villages.;;;;;;;;;;;;;x
 EVTOPT_DOOMENGINE_1A;It is clear something is happening...;;;;;;;;;;;;;x
-EVTDESC_DOOMENGINE_23;Your Host entered the lands infidels,  ;;;;;;;;;;;;;x
-EVTOPT_DOOMENGINE_23A;Drown them in their own blood! In the name of Chaos!.;;;;;;;;;;;;;x
+EVTDESC_DOOMENGINE_22;The [From.GetTitledFirstName] beg for your help against the armies of Chaos. What is your answer?;;;;;;;;;;;;;x
+EVTOPT_DOOMENGINE_22A;In this dark hour we will stand up to the challenge!.;;;;;;;;;;;;;x
+EVTOPT_DOOMENGINE_22B;This war isn't ours to fight.;;;;;;;;;;;;;x
+EVTDESC_DOOMENGINE_23;Your mighty host entered the lands of infidels they are not the target of black crusade however Gods would be pleased if their blood would cover the land...;;;;;;;;;;;;;x
+EVTOPT_DOOMENGINE_23A;Drown them in their own blood! Pillage and burn in the name of Gods!;;;;;;;;;;;;;x
 EVTOPT_DOOMENGINE_23B;Their time will come... Try to pass unnoticed.;;;;;;;;;;;;;x
+EVTDESC_DOOMENGINE_24; Armies of Chaos are marching. The host of [From.GetTitledFirstName] is ravagaing yor lands. What will you do?;;;;;;;;;;;;;x
+EVTOPT_DOOMENGINE_24A;!;;;;;;;;;;;;;x
+EVTOPT_DOOMENGINE_24B;Let them pass.;;;;;;;;;;;;;x
+#
 #
 # namespace = duelengine
 EVTDESC_DUELENGINE_0;In the heat of battle you have spotted an opponent;;;;;;;;;;;;;x

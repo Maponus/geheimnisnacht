@@ -3,6 +3,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+
 \usepackage{tikz}
 \usetikzlibrary{arrows,automata}
 %------------------------DEFINICJA STRUKTURY DO TKIZA------------------------------
@@ -98,5 +99,45 @@ Characteristics:
 \item faction adjustment that wants independence in case of lost war
 \item or a way to kill 
 \item on\_defender\_leader\_death - choose new heir to respectful title the title
+\end{itemize}
+
+\newpage
+\subsection{chaos\_incursion cb implementation}
+\paragraph{Description}
+In case of success gives land, each province that was occupied gets a modifer that 
+makes its prone to chaos, each other gives resistance modifier.
+If war attacker is everchosen he may have call other chaos  people to join war.
+Each ruler that is on the road of attacking party can join war.
+Defending ruler can ask for help to other non-chaotic ruler.
+\paragraph{Can use:} 
+\begin{itemize}
+ \item person with become king ambition and N piety,
+ \item holder of \textit{e\_host\_<something>}  title
+\end{itemize}
+\paragraph{Can be used against:}
+kingdoms with non chaos religion, with more than 4 counties which are indopendent
+\paragraph{Truce time:} 15-90 days
+The cb targets kingdoms of religions 
+Working implementation consits off:
+\paragraph{events}
+\begin{itemize}
+\item \textit{doomengine.20} - personal event that informs about chaos crusade 
+\item \textit{doomengine.21} - informing event where other characters decide
+ if they are taking side in chaos incrusion, also triggered by decision
+\item \textit{doomengine.22} - event send from defending character to traditional allies,
+triggered by decision \textit{ask\_for\_help}
+\item \textit{doomengine.23} - chaos incrusion member provoke liege of 
+the owner of traspassing province to join the war (as defender)
+\item \textit{doomengine.24} - event sended to the owner of province mentioned in event
+above
+\item \textit{doomengine.25} - event that handles provinc corruption after siege is won,
+triggered in \textit{on\_action}
+\end{itemize}
+\paragraph{decisions}
+
+\paragraph{involved files}
+\begin{itemize}
+\item  events : doomengine.txt
+\item common : cb\_types: 00\_cb\_types.txt
 \end{itemize}
 \end{document}

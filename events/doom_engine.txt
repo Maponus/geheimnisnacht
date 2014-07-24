@@ -138,6 +138,7 @@ province_event = {
        ai_chance = { factor = 1 }
     }
 }
+
 ##################################################
 #
 # Here should be events governing the conflicts
@@ -151,24 +152,21 @@ province_event = {
 # sets the FROM, and ROOT valeues nicely
 character_event = {
     id = doomengine.20
-    desc = "This event informs that choas guys will join you"
+    desc = "EVTDESC_DOOMENGINE_20"
+    picture = "GFX_evt_chaos_incrusion"
     is_triggered_only = yes
-    hide_window = yes
      
     option = { 
     #immediate = {
-        name = "Chaos should join us"
+        name = "IN THE NAME OF GODS!!!"
         # fires event back
         any_independent_ruler = {
             limit = { 
-               OR = {
-                   religion_group = chaos_gods_group
-                   religion_group = norse_group
-                   religion_group = horned_rat_god_group
-                   religion_group = hashut_god_group
-               }
-               NOT = { distance = { who = ROOT distance = 1000 } }
-               war = no
+               higher_tier_than = DUKE
+               NOT = { religion_group = nehekharan_gods_group }
+               NOT = { religion_group = greenskin_gods_group }
+               NOT = { religion_group = necromantic_group }
+               NOT = { distance = { who = ROOT distance = 1200 } }
             }
             character_event = { id = doomengine.21 }
         }
@@ -179,7 +177,7 @@ character_event = {
 character_event = {
     id = doomengine.21
     desc = "EVTDESC_DOOMENGINE_21"
-    picture = "GFX_evt_nurgle"
+    picture = "GFX_evt_chaos_incrusion"
     is_triggered_only = yes
     
     # Join the attackers
@@ -191,8 +189,7 @@ character_event = {
                    ai = yes
                    OR = {
                        religion_group = chaos_gods_group
-                       religion_group = norse_group
-                       religion_group = horned_rat_god_group
+                       religion = dark_norse
                        religion_group = greenskin_gods_group
                    }
                 }
@@ -247,7 +244,7 @@ character_event = {
             modifier = {
                 factor = 0.1
                 OR = {
-                    religion_group = greenskin_goods_group
+                    religion_group = greenskin_gods_group
                     religion_group = horned_rat_god_group
                 }
             }
@@ -267,9 +264,139 @@ character_event = {
 
         }
     }
+    # Join the defenders
+    option = {
+        trigger = {
+            OR = {
+                # ai can join only if it has specific religion
+                AND = {
+                   ai = yes
+                   OR = {
+                       religion_group = cadai_gods_group
+                       religion_group = dwarf_gods_group
+                       religion_group = halfling_gods_group
+                       religion_group = old_world_group
+                   }
+                }
+                ai = no
+            }
+        }
+        name = "EVTOPT_DOOMENGINE_21B"
+        FROM = {
+            any_war = {
+            # FIXME change to "if" if that doesn't work
+                limit = { using_cb = chaos_invasion }
+                defender = { ROOT = { join_defender_wars = PREV } }
+            }
+        }
+        ai_chance = {
+            factor = 1
+
+            # AI MODIFIERS due to the religion and culture
+            modifier = {
+                factor = 0.7
+                # check if the culture group is the same
+		FROM = {
+                    any_war = { 
+                        using_cb = chaos_invasion
+                        defender = { NOT = { culture_group = ROOT } }
+                    }
+                }
+            }
+            modifier = {
+                factor = 0.75
+                # check if the culture is the same
+		FROM = {
+                    any_war = { 
+                        using_cb = chaos_invasion
+                        defender = { NOT = { culture = ROOT } }
+                    }
+                }
+            }
+            modifier = {
+                factor = 0.7
+                # check if the religion group is the same
+		FROM = {
+                    any_war = { 
+                        using_cb = chaos_invasion
+                        defender = { NOT = { religion_group = ROOT } }
+                    }
+                }
+            }
+            modifier = {
+                factor = 0.75
+                # check if the religion is the same
+		FROM = {
+                    any_war = { 
+                        using_cb = chaos_invasion
+                        defender = { NOT = { religion = ROOT } }
+                    }
+                }
+            }
+            # AI MODIFIERS due to the distance
+            modifier = {
+                factor = 0.6
+                distance = { who = FROM distance = 600 }
+            }
+            modifier = {
+                factor = 0.7
+                distance = { who = FROM distance = 300 }
+            }
+            modifier = {
+                factor = 0.7
+                NOT = { opinion = { who = FROM value = 0 } }
+            }
+            modifier = {
+                factor = 1.3
+                opinion = { who = FROM value = 30 }  
+            }
+            modifier = {
+                factor = 1.3
+                opinion = { who = FROM value = 60 }  
+            }
+            modifier = {
+                factor = 1.2
+                FROM = { piety = 300 }
+            }
+            modifier = {
+                factor = 1.2
+                FROM = { prestige = 300 }
+            }
+            modifier = {
+                factor = 1.2
+                FROM = { prestige = 300 }
+            }
+            modifier = {
+                factor = 1.2
+                FROM = { martial = 10 }
+            }
+            modifier = {
+                factor = 1.5
+                FROM = { has_landed_title = e_host_chaos }
+            }
+            modifier = {
+                factor = 0.1
+                religion_group = halfling_gods_group
+            }
+            modifier = {
+                factor = 0.6
+                has_global_flag = doom_low
+            }
+            modifier = {
+                factor = 1.2
+                has_global_flag = doom_high
+            }
+            modifier = {
+                factor = 1.5
+                has_global_flag = doom_very_high
+            }
+        }
+    }
     # Wait
     option = {
         name = "EVTOPT_DOOMENGINE_21C"
+        piety = -50
+        prestige = -50
         ai_chance = {
             factor = 2
         } 
@@ -281,12 +408,12 @@ character_event = {
 # FROM = person attacked in chaos incursion 
 character_event = {
     id = doomengine.22
-    desc = "EVTDESC_DOOMENGINE_21"
-    picture = "GFX_evt_nurgle"
+    desc = "EVTDESC_DOOMENGINE_22"
+    picture = "GFX_evt_chaos_incrusion"
     is_triggered_only = yes
  
     option = {
-        name = "EVTOPT_DOOMENGINE_21B"
+        name = "EVTOPT_DOOMENGINE_22A"
         # get the defender by getting war with proper cb
         join_defender_wars = FROM
         ai_chance = {
@@ -295,26 +422,29 @@ character_event = {
     }
     # Wait
     option = {
-        name = "EVTOPT_DOOMENGINE_21C"
+        name = "EVTOPT_DOOMENGINE_22B"
         ai_chance = {
             factor = 8
         } 
     }
 }
+# DOOMENGINE.23 - works
+#
 # event triggerd if some character participating in war trasspasses
-# territory of character
 # armies on his territory
 character_event = {
     id = doomengine.23
     desc = "EVTDESC_DOOMENGINE_23"
-    picture = "GFX_evt_nurgle" 
+    picture = "GFX_evt_chaos_incrusion"
    
     # check if you're on neutral lands
     trigger = {
         war = yes
         in_command = yes
-        is_primary_attacker = yes
-        any_war = { using_cb = chaos_invasion }
+        #is_primary_attacker = yes
+        any_war = { 
+            using_cb = chaos_invasion 
+        }
         # check if its really a province
         location = { has_owner = yes }
         # check if its our enemy who holds it
@@ -322,14 +452,12 @@ character_event = {
             owner = {
                 NOT = { war_with = ROOT } 
                 top_liege = {
-                    higher_tier_than = DUKE #king or emperor
                     NOT = { war_with = ROOT }
                     # exclude chaos religions
                     NOT = { religion_group = chaos_gods_group }
                     NOT = { religion = dark_norse }
                     NOT = { religion_group = horned_rat_god_group }
                     NOT = { religion_group = hashut_god_group }
-                    NOT = { religion_group = beastman_gods_group }
                 }
             }
         }
@@ -337,74 +465,127 @@ character_event = {
     mean_time_to_happen = {
         days = 12
     }
-
     option = {
-        name = "EVTOPT_DOOMENIGINE_23A"
-        location = {
-            # top liege of province owner is a king
-            if = {
-                limit = {  
-                    kingdom = { has_holder = yes } 
-                    kingdom = { holder_scope = { independent = yes } }
-                }
-                kingdom = {
-                    holder_scope = {
-                        reverse_war = {
-                            target = ROOT # us
-                            casus_belli = chaos_invasion
-                            thirdparty_title = PREV
-                        }
-                    }   
-                }
-            }
-            # assuming that top_liege is an emperor
-            if = {
-                limit = {
-                    kingdom = { has_holder = yes } 
-                    kingdom = { holder_scope = { independent = no } }
-                }
-                # we need to get the emperor title scope 
-                kingdom = {
-                    empire = {
-                        holder_scope = {
-                            # DoW on Emperor for kingdom title
-                            reverse_war = {
-                                target = ROOT #us
-                                casus_belli = chaos_invasion
-                                thirdparty_title = PREVPREV
-                            }
-                        }
-                    }
-                }
-                # FIXME
-                ROOT = { set_character_flag = "emperor_case" }
-            }
-            # endif
-        }
-        # endlocation
-        ai_chance = { factor = 1 }
-    }
-    # send notification to owner of land maybe he would like to join the war
-    option = {
-        name = "EVTOPT_DOOMENGINE_23B"
-        # send event to person top liege
+        name = "EVTOPT_DOOMENGINE_23A"
+        # attack pillage and burn!
         location = {
             owner = { 
                 # get top liege KING or EMPEROR
-                top_liege = { character_event = { id = doomengine.24 } }   
+                top_liege = { 
+                    # this scope should be refered as new war actor
+                    ROOT = {   
+                        any_war = { 
+                            limit = { using_cb = chaos_invasion }
+                            defender = { 
+                                PREVPREVPREV = { join_defender_wars = PREV } 
+                            }
+                        }
+                    }
+                }   
             }
         }
         ai_chance = { factor = 1 }
     }
+
+    # send notification to owner of land maybe he would like to join the war
+    option = {
+        name = "EVTOPT_DOOMENGINE_23B"
+        # send event to person top liege 25% chances
+        location = {
+            owner = { 
+                # get top liege KING or EMPEROR
+		random_list = {
+                    25 = { top_liege = { character_event = { id = doomengine.24 } } }
+                    75 = { }
+                }
+            }
+        }
+        ai_chance = { factor = 5 }
+    }
+
 }
-#
+# Event that pops up when chaos force is trasspasing your province
 character_event = {
     id = doomengine.24
-    desc = ""
-    
+    desc = "EVTDESC_DOOMENGINE_24"
+    picture = "GFX_evt_chaos_incrusion" 
     is_triggered_only  = yes
+
     option = {
-        name = ""
+        name = "EVTOPT_DOOMENGINE_24A"
+        # scope to the enemy of trasspasing chaos host
+        FROM = { 
+            any_war = {
+                limit = { using_cb = chaos_invasion }
+                # join the defender war against chaos
+                defender = { 
+                    ROOT = { join_defender_wars = PREV }
+                }
+            }
+        }
+        ai_chance = { factor = 1 }
+    }
+    option = {
+        name = "EVTOPT_DOOMENGINE_24B"
+        # Do nothing
+        ai_chance = { factor = 1 }
+    }
+
+}
+# Apply modifier to province conquerd by Chaos forces during invasion 
+# FROM = barony title won
+character_event = {
+    id = doomengine.25
+    desc = "EVTDESC_DOOMENGINE_25"
+    picture = "GFX_evt_chaos_incrusion" 
+    is_triggered_only  = yes
+ 
+    trigger = {
+        # check if we are the bad guys
+        OR = {
+            any_war = { 
+                using_cb = chaos_invasion
+                defender = { war_with = ROOT }
+            }
+            any_liege = {
+                any_war = { 
+                    using_cb = chaos_invasion 
+                    defender = { war_with = ROOT }
+                }
+            }
+        }
+        religion_group = chaos_gods_group
+        # check if we're attacking bad guys
+        FROM = {
+            location = {
+                NOT = { religion_group = chaos_gods_group }
+                NOT = { religion_group = horned_rat_god_group }
+                NOT = { religion_group = hashut_god_group }
+                NOT = { religion_group = greenskin_gods_group }
+                # check if province isn't already attacked
+                NOT = { has_province_modifier = ravaged_by_chaos }
+            }
+        }
+    }
+    option = {
+        name = "EVTOPT_DOOMENGINE_25A"
+        # scope to the enemy of trasspasing chaos host
+        FROM = { 
+            location = {
+                # add ravaged by chaos status for 4 years
+                add_province_modifier = { name = ravaged_by_chaos duration = 1460 }
+                # remove chaos resistance modifier if any
+                remove_province_modifier = resistance
+            }
+        }
+        # apply doom counter modifications
+        1 = { change_variable = { which = "doom_counter" value = 3  }}
+        if = {
+            limit = { FROM = { is_capital = yes } }
+            1 = { change_variable = { which = "doom_counter" value = 5  }}
+        }
+        piety = 50
+        prestige = 25
         ai_chance = { factor = 1 }
     }
 }

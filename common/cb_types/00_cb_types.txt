@@ -7174,6 +7174,7 @@ chaos_invasion = {
             NOT = { religion_group = horned_rat_god_group } 
             NOT = { religion_group = beastman_gods_group } 
             NOT = { religion_group = hashut_god_group } 
+            NOT = { religion_group = greenskin_gods_group } 
             NOT = { religion = dark_norse } 
         }
     }
@@ -7236,6 +7237,7 @@ chaos_invasion = {
                 character_event = { id = doomengine.20 }
             }
         }
+        set_global_flag = chaos_invasion
     }
     #########################################################
     #
@@ -7243,6 +7245,9 @@ chaos_invasion = {
     #
     #########################################################
     on_success = {
+        # clr the flag
+        clr_global_flag = chaos_invasion
+
         # DOOM_COUNTER - raise
         1 = { change_variable = { which = "doom_counter" value = 16 } }
         
@@ -7330,14 +7335,17 @@ chaos_invasion = {
             hidden_tooltip = {
                 any_realm_province = {
                     limit = { 
+                        NOT = { has_province_modifier = ravaged_by_chaos } 
                     }
-                    add_province_modifier = { name = resistance duration = 10 }
+                    add_province_modifier = { name = resistance duration = 180 }
                 }
             }
         }
     }
 
     on_fail = {
+        # clr the flag
+        clr_global_flag = chaos_invasion
         # DOOM_COUNTER - fall
         1 = { change_variable = { which = "doom_counter" value = -16 } }
 

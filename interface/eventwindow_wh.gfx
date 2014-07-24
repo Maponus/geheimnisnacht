@@ -52,4 +52,11 @@ spriteTypes = {
                 texturefile = "gfx\\event_pictures\\tzeentch.tga"
                 allwaystransparent = yes
         }
+	# doomengine  events
+	spriteType = {
+                name = "GFX_evt_chaos_incrusion"
+                texturefile = "gfx\\event_pictures\\chaos_incrusion.tga"
+                allwaystransparent = yes
+        }
+
 }
