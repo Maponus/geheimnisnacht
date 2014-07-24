@@ -117,7 +117,7 @@ province_event = {
 #
 #
 #
-province_event = {
+province_event = { #works
     id = doomengine.1
     #name = "EVTNAME_DOOMENGINE_1"
     desc = "EVTDESC_DOOMENGINE_1"
@@ -138,6 +138,31 @@ province_event = {
        ai_chance = { factor = 1 }
     }
 }
+# province that is resisting against chaos fall
+province_event = {
+    id = doomengine.2
+    #name = "EVTNAME_DOOMENGINE_2"
+    desc = "EVTDESC_DOOMENGINE_2"
+    
+    trigger = {
+        NOT = { religion_group = chaos_gods_group }
+        NOT = { has_province_modifier = ravaged_by_chaos }
+        has_province_modifier = resistance 
+        owner = { religion_group = chaos_gods_group }
+    }
+    mean_time_to_happen = { 
+       months = 12
+    }
+    option = {
+       name = "EVTOPT_DOOMENGINE_2A"
+       # change modifier resistance to ravaged by chaos
+       remove_province_modifier = resistance
+       add_province_modifier = { name = ravaged_by_chaos duration = 1460 }
+       change_variable = { which = "doom_counter" value = 2 }
+       ai_chance = { factor = 1 }
+    }
+}
+
 
 ##################################################
 #
@@ -296,7 +321,7 @@ character_event = {
             modifier = {
                 factor = 0.7
                 # check if the culture group is the same
-		FROM = {
+        FROM = {
                     any_war = { 
                         using_cb = chaos_invasion
                         defender = { NOT = { culture_group = ROOT } }
@@ -306,7 +331,7 @@ character_event = {
             modifier = {
                 factor = 0.75
                 # check if the culture is the same
-		FROM = {
+        FROM = {
                     any_war = { 
                         using_cb = chaos_invasion
                         defender = { NOT = { culture = ROOT } }
@@ -316,7 +341,7 @@ character_event = {
             modifier = {
                 factor = 0.7
                 # check if the religion group is the same
-		FROM = {
+        FROM = {
                     any_war = { 
                         using_cb = chaos_invasion
                         defender = { NOT = { religion_group = ROOT } }
@@ -326,7 +351,7 @@ character_event = {
             modifier = {
                 factor = 0.75
                 # check if the religion is the same
-		FROM = {
+        FROM = {
                     any_war = { 
                         using_cb = chaos_invasion
                         defender = { NOT = { religion = ROOT } }
@@ -494,7 +519,7 @@ character_event = {
         location = {
             owner = { 
                 # get top liege KING or EMPEROR
-		random_list = {
+        random_list = {
                     25 = { top_liege = { character_event = { id = doomengine.24 } } }
                     75 = { }
                 }
@@ -533,6 +558,8 @@ character_event = {
 
 }
 # Apply modifier to province conquerd by Chaos forces during invasion 
+# triggerd by on_siege_won_leader
+#
 # FROM = barony title won
 character_event = {
     id = doomengine.25

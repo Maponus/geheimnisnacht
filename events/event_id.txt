@@ -51,8 +51,8 @@
 # (Character) Guardian Events: 2000-2500, 38100 - 38299
 # TODO: fits for human races only
 
-
-
+# Cultural Conversion Events: 55000 - 59999
+# TODO: fits for human races only
 
 ##############################
 #
@@ -94,7 +94,6 @@
 
 # Imprisoned Events: 50000 - 54999
 
-# Cultural Conversion Events: 55000 - 59999
 
 # Regency Events: 61000 - 61999
 
