@@ -1864,6 +1864,7 @@ castle = {
 		build_time = 30
 		light_infantry = 20
 		archers = 20
+		knights = 100
 		fort_level = 0.5
 		ai_creation_factor = 80
 
