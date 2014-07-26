@@ -897,8 +897,6 @@ on_crusade_creation = {
 on_marriage = {
 	events = {
  		500 # Royal Marriage Aid Duty
- 		501 # Zoroastrian "Xwedodah" marriage
- 		502 # Messalian close kin marriage
 		708 # Marriage Game achievement
  	}
 }

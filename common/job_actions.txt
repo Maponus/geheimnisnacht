@@ -222,9 +222,9 @@ action_inquisition = {
             owner = {
                 #FROM = { NOT = { religion_group = pagan_group } }
                 independent = yes
-                NOT = { religion = FROM }
-                #religion_group = pagan_group
-                is_reformed_religion = no
+                #NOT = { religion = FROM }
+                NOT = { religion_group = FROM }
+                #is_reformed_religion = no
                 capital_scope = {
                     province = ROOT
                 }

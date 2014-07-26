@@ -38,9 +38,6 @@
 
 # (Character) Health Events: 6000-6499
 
-# Crusade Events: 8300-8499
-# renamed to chaos_vs_order.txt
-# its content tells about chaos incrusions etc
 
 # (Character) Adult Personality Traits: 1000-1499 
 # TODO non-human races don't taken into account
@@ -99,7 +96,6 @@
 
 # Siege Events: 62000 - 62299
 
-# misc_old_gods_events: 62300 - 62999
 
 # Vassal Request Events: 63000 - 63999
 
@@ -178,4 +174,15 @@
 # (Character) Muslim Honorary Titles Events: 105000 - 105999
 
 # Important Muslims: 106000 - 106999
+
+#################################################
+#
+# RESERVOIR OF EVENTS
+#
+# misc_old_gods_events: 62300 - 62999
+
+
+# Crusade Events: 8300-8499
+# renamed to chaos_vs_order.txt
+# its content tells about chaos incrusions etc
 

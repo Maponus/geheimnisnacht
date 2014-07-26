@@ -99,7 +99,6 @@ character_event = {
             factor = 0.1 # one mutation per 30 years
             OR = {
                 religion_group = chaos_gods_group
-                religion_group = beastman_gods_group
                 religion_group = horned_rat_god_group
             }
         }
@@ -109,7 +108,6 @@ character_event = {
             AND = {
                 OR = {
                     religion_group = chaos_gods_group
-                    religion_group = beastman_gods_group
                     religion_group = horned_rat_god_group
                 }
                 piety = 50
@@ -122,7 +120,6 @@ character_event = {
                 OR = {
                     religion_group = chaos_gods_group
                     religion_group = horned_rat_god_group
-                    religion_group = beastman_gods_group
                 }
                 piety = 200
             }
@@ -133,7 +130,6 @@ character_event = {
                 OR = {
                     religion_group = chaos_gods_group
                     religion_group = horned_rat_god_group
-                    religion_group = beastman_gods_group
                 }
                 piety = 500
             }
@@ -150,7 +146,7 @@ character_event = {
     # trigger an actual mutation event depending on 
     # the amount of mutations
     immediate = {
- #       character_event = { id = mutation.2 }
+        character_event = { id = mutation.2 }
     }
 }
 #
