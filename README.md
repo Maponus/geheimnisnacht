@@ -8,13 +8,13 @@ we start here
 
 
 
-* [ ] 0.1.0 *basic -- means getting rid of non warhammer stuff*
+* [x] 0.1.0 *basic -- means getting rid of non warhammer stuff*
   - [x] basic port of cbs 
-  - [ ] port council conected data, and events
-  - [ ] basic port of factions
-  - [ ] basic port of objectives
-  - [ ] basic port of on_action mechanics with corresponding events
-  - [ ] basic port of decisions
+  - [x] port council conected data, and events
+  - [x] basic port of factions
+  - [x] basic port of objectives
+  - [x] basic port of on_action mechanics with corresponding events
+  - [x] basic port of decisions (without minor ones)
   - [x] traits
   - [x] modifiers
   - [x] history
@@ -35,6 +35,7 @@ we start here
 
 * [ ] 0.1.3
   - [ ] make race&culture specific changes to basic events (humans only)
+  - [ ] make race&culture specific changes to decisions  (humans only)
   - [ ] make race&culture specific localisation chagnes (humans only)
 
 * [ ] 0.1.4
