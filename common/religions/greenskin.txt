@@ -25,7 +25,6 @@ greenskin_gods_group = {
 		priests_can_marry = no
 		aggression = 2.5 		
 		allow_looting = yes
-		allow_rivermovement = yes
 		can_hold_temples = yes
 	}
 
@@ -48,7 +47,6 @@ greenskin_gods_group = {
 		priests_can_marry = no
 		aggression = 2.5 		
 		allow_looting = yes
-		allow_rivermovement = yes
 		can_hold_temples = yes
 	}	
 }

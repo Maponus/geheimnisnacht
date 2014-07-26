@@ -96,38 +96,8 @@ decisions = {
         }
     }
 
-    issue_declaration_of_repentance = {
-        potential = {
-            religion = catholic
-            age = 16
-            demesne_size = 1
-            NOT = { has_character_flag = ask_for_repentance }
-            rightful_religious_head_scope = {
-                ROOT = {
-                    excommunicated_for = PREV
-                }
-            }
-        }
-        allow = {
-            scaled_wealth = 2.0
-            is_heretic = no
-        }
-        effect = {
-            set_character_flag = ask_for_repentance
-            rightful_religious_head_scope = {
-                character_event = { id = 39252 days = 5 random = 12 tooltip = "repentance_ask" }
-            }
-        }
-        ai_will_do = {
-            factor = 1
-            modifier = {
-                factor = 0
-                NOT = {
-                    scaled_wealth = 10.0
-                }
-            }
-        }
-    }
+    # whatever idk what is it
+    #issue_declaration_of_repentance = {
     
     demand_liege_title = {
         is_high_prio = yes
