@@ -14,6 +14,19 @@ action_improve_relations = {
         any_province_lord = {
             NOT = { character = FROM }
             is_theocracy = no
+            # warhammer religius and racial restrictions
+            # improving relations is only possible between civilized races
+            OR = {
+                religion_group = FROM
+                AND = {
+                    religion_group = norse_group
+                    FROM = { religion_group = chaos_gods_group }
+                }
+                AND = {
+                    religion_group = norse_group
+                    FROM = { religion_group = old_world_group }
+                }
+            }
         }
         is_within_diplo_range = FROM
     }
@@ -27,6 +40,19 @@ action_fabricate_claims = {
     trigger = {
         any_province_lord = {
             NOT = { character = FROM }
+            # warhammer religius and racial restrictions
+            # improving relations is only possible between civilized races
+            OR = {
+                religion_group = FROM
+                AND = {
+                    religion_group = norse_group
+                    FROM = { religion_group = chaos_gods_group }
+                }
+                AND = {
+                    religion_group = norse_group
+                    FROM = { religion_group = old_world_group }
+                }
+            }
         }
         is_within_diplo_range = FROM
     }
@@ -231,16 +257,23 @@ action_improve_rel_relations = {
     attribute = learning
     
     potential = {
-        # TODO make it impssible to improve relation between order guys and haos and vice versa
-        #FROM = {
-        #    NOT = { religion_group = muslim }
-        #}
+        # TODO make it impssible to improve relation between order guys and chaos and vice versa
+        FROM = {
+            NOT = { religion_group = chaos_gods_group }
+        }
     }
     
     trigger = {
         any_province_lord = {
             religion = FROM
             is_theocracy = yes
+            OR = {
+                religion_group = FROM
+                AND = {
+                    religion_group = norse_group
+                    FROM = { religion_group = old_world_group }
+                }
+            }
         }
         is_within_diplo_range = FROM
     }

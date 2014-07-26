@@ -333,7 +333,34 @@ spriteTypes = {
 		norefcount = yes
 		effectFile = "gfx/FX/buttonstate.lua"
 	}
+        spriteType = {
+		name = "GFX_trait_mutation_major"
+		texturefile = "gfx/traits/mutation_major.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
 	# new personalities
-
+        spriteType = {
+		name = "GFX_trait_mutation_major"
+		texturefile = "gfx/traits/mutation_major.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+        spriteType = {
+		name = "GFX_trait_mutation_massive"
+		texturefile = "gfx/traits/mutation_massive.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+        spriteType = {
+		name = "GFX_trait_mutation_minor"
+		texturefile = "gfx/traits/mutation_minor.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
 
 }

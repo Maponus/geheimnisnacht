@@ -507,6 +507,6 @@ lore_high_magic_desc;This character can use Qhaysh and manipulate the entire spe
 lore_dark_magic_desc;This character can use Dhar and uses all winds in their most raw form.;;;;;;;;;;;;;x
 lore_nurgle_desc;This character can use spells specially crafted by Nurgle.;;;;;;;;;;;;;x
 lore_slaanesh_desc;This character can use spells specially crafted by Slaanesh.;;;;;;;;;;;;;x
-lore_tzeenth_desc;This character can use spells specially crafted by Tzeenth.;;;;;;;;;;;;;x
-lore_ice_desc;This character can use magic of Ice;;;;;;;;;;;;;x
+lore_tzeentch_desc;This character can use spells specially crafted by Tzeenth.;;;;;;;;;;;;;x
+lore_ice_desc;This character can use magic of Ice practiced by Ice Witches of Kislev.;;;;;;;;;;;;;x
 
