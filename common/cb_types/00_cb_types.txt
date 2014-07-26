@@ -2308,7 +2308,6 @@ religious = {
             NOT = { religion_group = greenskin_gods_group }
             NOT = { religion_group = dwarf_gods_group }
             NOT = { religion_group = halfling_gods_group }
-            NOT = { religion_group = beastman_gods_group }
             #
             NOT = { same_realm = FROM }
             OR = {
@@ -2392,7 +2391,6 @@ religious = {
             NOT = { religion_group = greenskin_gods_group }
             NOT = { religion_group = dwarf_gods_group }
             NOT = { religion_group = halfling_gods_group }
-            NOT = { religion_group = beastman_gods_group }
             #NOT = { religion_group = norse_group }
             # end of this stuff
             NOT = { same_realm = FROM }
@@ -5292,7 +5290,6 @@ pagan_subjugation = {
     can_use = {
         ROOT = {
             OR = {
-                culture_group = beastman_group
                 culture_group = norscan_group
             }
             NOT = { same_realm = FROM }
@@ -6105,7 +6102,6 @@ pagan_county_conquest = {
         ROOT = {
             OR = {
                 culture_group = norscan_group
-                culture_group = beastman_group
                 culture_group = kurgan_group
                 culture_group = hung_group
             }
@@ -7172,7 +7168,6 @@ chaos_invasion = {
         FROM = { 
             NOT = { religion_group = ROOT } 
             NOT = { religion_group = horned_rat_god_group } 
-            NOT = { religion_group = beastman_gods_group } 
             NOT = { religion_group = hashut_god_group } 
             NOT = { religion_group = greenskin_gods_group } 
             NOT = { religion = dark_norse } 
@@ -7267,7 +7262,6 @@ chaos_invasion = {
         #        num_of_king_titles = 1
         #        NOT = { religion_group = ROOT } 
         #        NOT = { religion_group = horned_rat_god_group } 
-        #        NOT = { religion_group = beastman_gods_group } 
         #        NOT = { religion_group = hashut_god_group } 
         #        NOT = { religion = dark_norse } 
         #        # target must be nearby so bordering province 

@@ -29,7 +29,6 @@ character_event = {
                 trait = creature_skaven
                 trait = creature_nehekharan
                 trait = creature_ogre
-                trait = creature_beastman
             }
         }
     }
@@ -124,12 +123,6 @@ character_event = {
                 culture_group = ogre_group
             }
             add_trait = creature_ogre
-        }
-        if = {
-            limit = {
-                culture_group = beastman_group
-            }
-            add_trait = creature_beastman
         }
     }
 }

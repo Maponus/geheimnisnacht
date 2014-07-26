@@ -291,31 +291,6 @@ creature_ogre = {
 	fertility = -0.15
 }
 
-creature_beastman = {
-	potential = {
-		culture_group = beastman_group
-	}
-	
-	inherit_chance = 100
-	
-	# beastmean are half animals
-	diplomacy = -2
-	learning = -3
-	intrigue = -1
-	stewardship = -3
-	
-	# racism	
-	same_opinion = 30
-	general_opinion = -40
-
-	
-	fertility = -0.3
-	ai_rationality = -20
-	ai_honor = -10
-	ai_zeal = 10
-	vassal_opinion = -40
-}
-
 #Greenskins
 
 orc_small = {

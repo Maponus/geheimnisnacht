@@ -9,7 +9,7 @@ we start here
 
 
 * [ ] 0.1.0 *basic -- means getting rid of non warhammer stuff*
-  - [ ] basic port of cbs 
+  - [x] basic port of cbs 
   - [ ] port council conected data, and events
   - [ ] basic port of factions
   - [ ] basic port of objectives

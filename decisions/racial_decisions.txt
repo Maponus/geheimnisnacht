@@ -182,21 +182,6 @@ decisions = {
         }
         ai_will_do = { factor = 1500 }
     }
-    # beastman
-    ai_race_beastman = {
-	potential = {
-            ai=yes
-            culture_group = beastman_group
-            NOT = { trait = creature_beastman }
-	}
-        allow = {
-            always = yes
-        }
-        effect = { 
-            add_trait = creature_beastman
-        }
-        ai_will_do = { factor = 1500 }
-    }
     # ogre
     ai_race_ogre = {
 	potential = {

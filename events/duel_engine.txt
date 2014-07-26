@@ -147,7 +147,6 @@ character_event = { # Battlefield Duel Start
                 culture_group = orc_group
                 culture_group = ogre_group
                 culture_group = lizardman_group
-                culture_group = beastman_group
             }
         }
         modifier = {
@@ -695,7 +694,6 @@ character_event = {
            limit = { 
                OR = {
                    trait = creature_human
-                   trait = creature_beastman
                    trait = creature_skaven
                }
            } 
