@@ -7,4 +7,5 @@ backups
 *.pdf
 *.aux
 *.log
+magic_childs
 test.*
