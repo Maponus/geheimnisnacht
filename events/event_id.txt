@@ -38,7 +38,6 @@
 
 # (Character) Health Events: 6000-6499
 
-
 # (Character) Adult Personality Traits: 1000-1499 
 # TODO non-human races don't taken into account
 
@@ -51,23 +50,11 @@
 # Cultural Conversion Events: 55000 - 59999
 # TODO: fits for human races only
 
-##############################
-#
-# VANILA EVENTS  
-#
-##############################
-
-# Those events we need to port for Warhammer 
-# to gain bare functionality and gameplay experience
-# of quality similiar to this form vanilla
-
 # (Character) Personality Trait Effects: 3000 - 3999
 
 # (Character) Feudal Life: 4000-4499
 
 # (Character) Lifestyle Events: 5000-5499
-
-# (Character) Critical Events: 6500-6899
 
 # (Character) Campaign Events: 6900-6999
 
@@ -85,17 +72,13 @@
 
 # Bankruptcy Events: 38000 - 38099
 
-# Religious Events: 39000 - 39999
-
 # Civil War Events: 45000 - 45999
 
 # Imprisoned Events: 50000 - 54999
 
-
 # Regency Events: 61000 - 61999
 
 # Siege Events: 62000 - 62299
-
 
 # Vassal Request Events: 63000 - 63999
 
@@ -105,19 +88,9 @@
 
 # (Character) Dynasty Events: 66000 - 66999
 
-# (Character) Pope vs Free Investiture: 67000 - 67999
-
 # (Character) Rumours Events: 69000 - 69999
 
-# (Character) Tournament Events: 70000 - 70999
-
-# (Character) Hedge Knights: 71000 - 71999
-
-# (Character) Feast Events: 72000 - 72999
-
 # (Character) Court Events: 73000 - 73999
-
-# (Character) Summer Fair Events: 74000 - 74999
 
 # (Character) Job Flavour Events: 75000 - 75999
 
@@ -129,13 +102,20 @@
 
 # Rebel events: 80000 - 85000
 
-# Polygamy Events: 89000 - 89249
-
 # Ambition Events: 94000 - 94999
 
 # Friends & Rivals events: 100000 - 104999
 
 
+##############################
+#
+# VANILA EVENTS  
+#
+##############################
+
+# Those events we need to port for Warhammer 
+# to gain bare functionality and gameplay experience
+# of quality similiar to this form vanilla
 
 ##############################
 #
@@ -146,6 +126,9 @@
 # Those event doesn't have to be ported 
 # remember about delteing references to 
 # their id ranges
+
+
+# (Character) Critical Events: 6500-6899
 
 # Teutonic Order Events: 8500-9999
 
@@ -175,12 +158,29 @@
 
 # Important Muslims: 106000 - 106999
 
+# (Character) Pope vs Free Investiture: 67000 - 67999
+
+# (Character) Summer Fair Events: 74000 - 74999
+
 #################################################
 #
-# RESERVOIR OF EVENTS
+# RESERVOIR OF EVENTS FOR THE NEXT VERSIONS
 #
+################################################
+
+# Those events are deleted from game for the time being
+
 # misc_old_gods_events: 62300 - 62999
 
+# (Character) Feast Events: 72000 - 72999
+
+# Polygamy Events: 89000 - 89249
+
+# (Character) Hedge Knights: 71000 - 71999
+
+# Religious Events: 39000 - 39999
+
+# (Character) Tournament Events: 70000 - 70999
 
 # Crusade Events: 8300-8499
 # renamed to chaos_vs_order.txt
