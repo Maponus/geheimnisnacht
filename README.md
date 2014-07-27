@@ -20,8 +20,8 @@ we start here
   - [x] history
   - [x] titles
 
-* [ ] 0.1.1 
-  - [ ] port all events from events_to_port, basic port only - get rid of non warhammer stuff
+* [x] 0.1.1 
+  - [x] port all events from events_to_port, basic port only - get rid of non warhammer stuff
 
 
 * [ ] 0.1.2 
