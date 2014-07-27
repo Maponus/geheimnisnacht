@@ -140,4 +140,51 @@ triggered in \textit{on\_action}
 \item  events : doomengine.txt
 \item common : cb\_types: 00\_cb\_types.txt
 \end{itemize}
+
+\section{Units and their stats}
+Needed a mapping from $R^{10} \to R^8$.
+
+Warhammer Symbols:
+\begin{itemize}
+\item $M$ - movement
+\item $WS$ - weapon skill
+\item $BS$ - balisitc skill
+\item $S$ - strength
+\item $T$ - toughness
+\item $W$ - wounds
+\item $I$ - initiative
+\item  $A$ - attacks
+\item $L$ - leadership
+\item $AS$ - armor saving throw,
+\item $P$ - points
+\end{itemize}
+CK2 stats: WIP
+each is in some sort multiplication of two stats
+\begin{itemize}
+
+\item melee offence, $MO = \sqrt{WS \cdot S }\cdot A $
+
+\item melee defence,
+$MD = \frac{1}{2}(WS + \sqrt{T\cdot (7-AS)})\cdot T$
+
+\item pursue offence, 
+$PO = \frac{1}{2}(\sqrt{WS \cdot S} + \sqrt{3.5 BS})\cdot \sqrt{A\cdot M}$
+
+\item pursue defence, 
+$PD = \frac{1}{2}(WS + \sqrt{T\cdot (7-AS)})\cdot \sqrt{M}\cdot T$
+
+\item skirmish offence, 
+$SO = \frac{1}{2} \left( 
+\sqrt{3.5BS} \cdot \sqrt{A\cdot I} + 
+\sqrt{WS\cdot S} \cdot \sqrt{A\cdot I\cdot M}
+\right)$
+
+\item skirmish defence, 
+$SD = \sqrt{T\cdot (7-AS)})\cdot \sqrt{M\cdot I}\cdot T$
+
+\item maintence, $SD = P$, WIP
+\item morale, $MR = \frac{1}{2} (L + mean of the rest stats)$, WIP
+
+\end{itemize}
+
 \end{document}

@@ -1185,7 +1185,7 @@ WAAAGH;Waaagh!;;;;;;;;;;;;;x
 BLACK_CRUSADE;Black Crusade;;;;;;;;;;;;;x
 # HOLY BOOKS NAMES
 # JOBS NAMES
-job_spiritual_greenskin_gods_group;Cunning Shaman;;;;;;;;;;;;;x;
+job_spiritual_greenskin_gods_group;Kunnin' Shaman;;;;;;;;;;;;;x;
 job_spiritual_lady_of_the_lake;Spiritual Advisor;;;;;;;;;;;;;x;
 # Kislevite Jobs
 job_chancellor_kislevite_group;Radny;;;;;;;;;;;;;x;
@@ -1194,16 +1194,14 @@ job_marshal_kislevite_group;Hetman;;;;;;;;;;;;;x;
 job_spymaster_kislevite_group;Czatovnik;;;;;;;;;;;;;x;
 job_spiritual_kislevite_group;Propovidnyk;;;;;;;;;;;;;x;
 # Kurgans
-job_chancellor_kurgan_group;Zar Voice;;;;;;;;;;;;;x;
+job_chancellor_kurgan_group;Speaker;;;;;;;;;;;;;x;
 job_treasurer_kurgan_group;Slavemaster;;;;;;;;;;;;;x;
-job_marshal_kurgan_group;Zar's Hand;;;;;;;;;;;;;x;
-job_spymaster_kurgan_group;Zar's Eye;;;;;;;;;;;;;x;
+job_marshal_kurgan_group;Chamption;;;;;;;;;;;;;x;
 job_spiritual_kurgan_group;Shaman;;;;;;;;;;;;;x;
 # Hung
-job_chancellor_hung_group;Khaan's Voice;;;;;;;;;;;;;x;
+job_chancellor_hung_group;Speaker;;;;;;;;;;;;;x;
 job_treasurer_hung_group;Slavemaster;;;;;;;;;;;;;x;
-job_marshal_hung_group;Khaan's Hand;;;;;;;;;;;;;x;
-job_spymaster_hung_group;Khaan's Eye;;;;;;;;;;;;;x;
+job_marshal_hung_group;Champion;;;;;;;;;;;;;x;
 job_spiritual_hung_group;Shaman;;;;;;;;;;;;;x;
 # DESCRIPTIONS 
 elder_gods_DESC;The Elder Gods are a loose collection of related deities commonly worshipped in the Empire. They are typically more wild and less friendly than their southern counterparts, an attitude required in the dangerous and uncivilised north. The most powerful and militant cult is the Cult of Ulric, headed by the Ar-Ulric residing in Middenheim. The Ar-Ulric holds an Imperial Elector seat, and typically supports the election of Emperors from Middenland and Talabecland.;;;;;;;;;;;;;x;
