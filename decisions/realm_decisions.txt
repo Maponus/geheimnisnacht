@@ -1,70 +1,70 @@
 decisions = {
 
-    hold_a_epic_tournament  = {
-        is_high_prio = yes
-        potential = {
-            NOT = {
-                has_character_flag = epic_tournament
-                has_character_flag = do_not_disturb
-            }
-            religion_group = old_world_group
-            independent = yes
-            NOT = { is_female = yes    }
-            OR = {
-                tier = king
-                tier = emperor 
-            }
-            location = {
-                owner = { character = ROOT }
-            }
-        }
-        allow = {
-            war = no
-            prisoner = no
-            in_command = no
-            age = 16
-            prestige = 500
-            wealth = 200
-        }
-        effect = {
-            set_character_flag = epic_tournament
-            set_character_flag = do_not_disturb
-            clr_character_flag = tournament_has_ended
-            hidden_tooltip = { character_event = { id = 70999 days = 150 } } # Safety catch flag clearing
-            wealth = -200
-            prestige = 100
-            character_event = { id = 70033 tooltip = "tournament_invite" }
-            hidden_tooltip = {
-                character_event = { id = 70001 days = 60 } # Tournament start
-                clr_character_flag = tournament_has_ended
-                any_realm_character = {
-                    limit = {
-                        is_feudal = yes
-                        NOT = { has_job_title = job_spiritual }
-                        age = 16
-                        NOT = { age = 50 }
-                        NOT = { trait = incapable }
-                        prisoner = no    
-                        is_female = no
-                    }
-                    clr_character_flag = tournament_has_ended
-                    character_event = { id = 70000 }
-                }
-            }
-        }
-        ai_will_do = {
-            factor = 1
-            modifier = {
-                factor = 0
-                NOT = {
-                    OR = {
-                        wealth = 1000
-                        scaled_wealth = 3.0
-                    }
-                }
-            }
-        }
-    }
+    #hold_a_epic_tournament  = {
+    #    is_high_prio = yes
+    #    potential = {
+    #        NOT = {
+    #            has_character_flag = epic_tournament
+    #            has_character_flag = do_not_disturb
+    #        }
+    #        religion_group = old_world_group
+    #        independent = yes
+    #        NOT = { is_female = yes    }
+    #        OR = {
+    #            tier = king
+    #            tier = emperor 
+    #        }
+    #        location = {
+    #            owner = { character = ROOT }
+    #        }
+    #    }
+    #    allow = {
+    #        war = no
+    #        prisoner = no
+    #        in_command = no
+    #        age = 16
+    #        prestige = 500
+    #        wealth = 200
+    #    }
+    #    effect = {
+    #        set_character_flag = epic_tournament
+    #        set_character_flag = do_not_disturb
+    #        clr_character_flag = tournament_has_ended
+    #        hidden_tooltip = { character_event = { id = 70999 days = 150 } } # Safety catch flag clearing
+    #        wealth = -200
+    #        prestige = 100
+    #        character_event = { id = 70033 tooltip = "tournament_invite" }
+    #        hidden_tooltip = {
+    #            character_event = { id = 70001 days = 60 } # Tournament start
+    #            clr_character_flag = tournament_has_ended
+    #            any_realm_character = {
+    #                limit = {
+    #                    is_feudal = yes
+    #                    NOT = { has_job_title = job_spiritual }
+    #                    age = 16
+    #                    NOT = { age = 50 }
+    #                    NOT = { trait = incapable }
+    #                    prisoner = no    
+    #                    is_female = no
+    #                }
+    #                clr_character_flag = tournament_has_ended
+    #                character_event = { id = 70000 }
+    #            }
+    #        }
+    #    }
+    #    ai_will_do = {
+    #        factor = 1
+    #        modifier = {
+    #            factor = 0
+    #            NOT = {
+    #                OR = {
+    #                    wealth = 1000
+    #                    scaled_wealth = 3.0
+    #                }
+    #            }
+    #        }
+    #    }
+    #}
     
     buy_indulgence_for_sins = {
         potential = {
