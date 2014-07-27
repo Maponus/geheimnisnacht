@@ -588,69 +588,48 @@ vampire_mahtmasi_hidden = {
 }
 
 
-celibate = {
-	
-	potential = {
-		NOT = { 
-			religion_group = greenskin_gods_group
-		}
-	}
-	
-	opposites =  {
-		hedonist
-	}
-	fertility = -10.0
-	
-	church_opinion = 10
-	opposite_opinion = -10
-	same_opinion = 20
-	
-	monthly_character_piety = 1
-	
-	ai_zeal = 30
-}
 
-withdrawn = {
+#withdrawn = {
+#
+#	potential = {
+#		NOT = { 
+#			religion_group = greenskin_gods_group
+#		}
+#	}
+#	
+#	opposites = {
+#		gregarious
+#		shy
+#		reclusive
+#	}
+#	diplomacy = -4
+#	martial = -2
+#	intrigue = -1
+#	stewardship = -1
+#	learning = -1
+#}
 
-	potential = {
-		NOT = { 
-			religion_group = greenskin_gods_group
-		}
-	}
-	
-	opposites = {
-		gregarious
-		shy
-		reclusive
-	}
-	diplomacy = -4
-	martial = -2
-	intrigue = -1
-	stewardship = -1
-	learning = -1
-}
-
-reclusive = {
-
-	potential = {
-		NOT = { 
-			religion_group = greenskin_gods_group
-		}
-	}
-	
-	opposites = {
-		gregarious
-		shy
-		withdrawn
-	}
-	incapacitating = yes
-	
-	diplomacy = -5
-	martial = -3
-	intrigue = -2
-	stewardship = -2
-	learning = -2
-}
+#reclusive = {
+#
+#	potential = {
+#		NOT = { 
+#			religion_group = greenskin_gods_group
+#		}
+#	}
+#	
+#	opposites = {
+#		gregarious
+#		shy
+#		withdrawn
+#	}
+#	incapacitating = yes
+#	
+#	diplomacy = -5
+#	martial = -3
+#	intrigue = -2
+#	stewardship = -2
+#	learning = -2
+#}
 
 
 monk = {
